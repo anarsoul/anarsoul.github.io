@@ -238,17 +238,17 @@ Reboot and now the console (or boot logo if you enabled it) is correctly rotated
 
 ```
 Section "Monitor"
-    Identifier "HDMI-1"
-    Option "Rotate" "inverted"
+	Identifier "HDMI-1"
+	Option "Rotate" "inverted"
 EndSection
 
 
 Section "InputClass"
-            Identifier "Coordinate Transformation Matrix"
-            MatchIsTouchscreen "on"
-            MatchDevicePath "/dev/input/event*"
-            MatchDriver "libinput"
-            Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
+	Identifier "Coordinate Transformation Matrix"
+	MatchIsTouchscreen "on"
+	MatchDevicePath "/dev/input/event*"
+	MatchDriver "libinput"
+	Option "CalibrationMatrix" "-1 0 1 0 -1 1 0 0 1"
 EndSection
 ```
 
