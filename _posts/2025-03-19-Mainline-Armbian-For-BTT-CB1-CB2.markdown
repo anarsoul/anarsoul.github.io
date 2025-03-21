@@ -49,6 +49,8 @@ Just a few more tweaks are needed
 
 I usually disable IPv6 on my appliances out of security concerns. With IPv6 enabled the device would get a public IPv6 address and will be reachable over internet which is not desirable. It can be done with `nmtui` (NetworkManager TUI) from console
 
+**Note**: Armbian might have `netplan.io` installed. I find it redundant as long as NetworkManager is installed. Moreover it doesn't have a way to disable IPv6 SLAAC. Uninstall it with `sudo apt remove netplan.io`
+
 ## CAN0 interface TX queue length
 
 can0 interface needs its TX queue length to be changed to 128 as per Klipper recommendations. It is easy to do with an udev rule, just create `/etc/udev/rules.d/99-can0.rules` with following contents:
@@ -80,9 +82,14 @@ Name=can0
 [CAN]
 BitRate=1000K
 RestartSec=100ms
+
+[Link]
+RequiredForOnline=carrier
 ```
 
 And then just run `sudo systemctl enable systemd-networkd`
+
+**Note**: `RequiredForOnline=carrier` is important, otherwise `systemd-networkd-wait-online.service` might timeout.
 
 That is pretty much it for CB1, and I've been using CB1 without any problems for half a year. Well, I've got a TTC *once*, but it's after ~200h of printing
 
