@@ -229,7 +229,7 @@ CPU min MHz:                          408.0000
 
 ## Rotating the screen
 
-After a few months of usage my BTT HDMI5 started showing artefacts in normal orientation, it is likely some electronics defect, but I noticed that it is vertical flip mode (press middle button to activate it). It is implemented in the screen firmware.
+After a few months of usage my BTT HDMI5 started showing artefacts in normal orientation, it is likely some electronics defect, but I noticed that it works fine in vertical flip mode (press middle button to activate it). It is implemented in the screen firmware.
 
 However it isn't very convenient to have image rotated by 180 degrees, is it? So let's rotate it again, but this time in software!
 
