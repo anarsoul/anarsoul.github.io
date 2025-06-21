@@ -23,7 +23,7 @@ I reverse-engineered protocols for a [lot of fingerprint scanners](https://gitla
 
 ## u-boot fixes and improvements
 
-Bootloaders are fun. On most embedded platforms they are as close to the hardware as possible. [Click to see my contributions to u-boot](https://github.com/u-boot/u-boot/commits/master/?author=anarsoul) for various SoCs and boards. I mostly either add missing drivers/features for the hardware I have.
+Bootloaders are fun. On most embedded platforms they are as close to the hardware as possible. [Click to see my contributions to u-boot](https://github.com/u-boot/u-boot/commits/master/?author=anarsoul) for various SoCs and boards. I mostly add missing drivers/features for the hardware I have.
 
 ## Linux kernel patches
 
