@@ -1,0 +1,22 @@
+#!/bin/sh
+# Strip GPS coordinates from staged JPEGs before they get committed.
+# Enable once per clone with: git config core.hooksPath .githooks
+
+hooks=$(dirname "$0")
+list="$(git rev-parse --git-dir)/gps-stripped"
+
+git diff --cached --name-only --diff-filter=ACMR -z -- '*.jpg' '*.jpeg' '*.JPG' '*.JPEG' |
+  xargs -0 sh -c '[ $# -eq 0 ] || python3 "$0/strip_gps.py" "$@"' "$hooks" > "$list"
+status=$?
+
+if [ -s "$list" ]; then
+  echo "pre-commit: removed GPS coordinates from:"
+  sed 's/^/  /' "$list"
+  tr '\n' '\0' < "$list" | xargs -0 git add --
+fi
+rm -f "$list"
+
+if [ $status -ne 0 ]; then
+  echo "pre-commit: some images still contain GPS data, commit aborted" >&2
+  exit 1
+fi
