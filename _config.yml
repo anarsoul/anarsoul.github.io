@@ -66,7 +66,7 @@ plugins:
 
 author:
   name   : "Vasily Khoruzhick"
-  avatar : "/assets/images/3d-printed-cat.png"
+  avatar : "/assets/images/3d-printed-cat.jpg"
   bio    : "Software engineer specializing in Linux kernel, bootloaders and embedded systems"
   links:
     - label: "GitHub"
